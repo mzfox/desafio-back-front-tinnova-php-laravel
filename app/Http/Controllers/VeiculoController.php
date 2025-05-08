@@ -67,9 +67,25 @@ class VeiculoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Veiculo $veiculo)
+    public function update(Request $request, $id)
     {
-        //
+        $veiculo = Veiculo::find($id);
+    
+        if (!$veiculo) {
+            return response()->json(['erro' => 'Veículo não encontrado'], 404);
+        }
+    
+        $dados = $request->validate([
+            'veiculo' => 'required|string|max:255',
+            'marca' => 'required|string|max:255',
+            'ano' => 'required|integer',
+            'descricao' => 'nullable|string',
+            'vendido' => 'boolean'
+        ]);
+    
+        $veiculo->update($dados);
+    
+        return response()->json($veiculo);
     }
 
     /**
