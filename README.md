@@ -126,5 +126,5 @@ http://localhost:8000/veiculos-ui
 
 ## ✍️ Autor
 
-Desenvolvido por **Matheus Visotto**  
+Desenvolvido por **Matheus Visoto**  
 🔗 [github.com/mzfox](https://github.com/mzfox)
