@@ -21,6 +21,7 @@ Route::get('/exercicio1', [VotacaoController::class, 'index']);
 Route::get('/exercicio2', [OrdenacaoController::class, 'index']);
 Route::get('/exercicio3/{numero}', [FatorialController::class, 'calcular']);
 Route::get('/exercicio4/{limite}', [MultiplosController::class, 'somar']);
+Route::get('/veiculos-ui', fn () => view('veiculos'));
 
 
 Route::get('/', function () {
