@@ -64,6 +64,7 @@ class VeiculoController extends Controller
         //
     }
 
+
     /**
      * Update the specified resource in storage.
      */
@@ -87,6 +88,29 @@ class VeiculoController extends Controller
     
         return response()->json($veiculo);
     }
+
+
+    public function updateParcial(Request $request, $id)
+    {
+        $veiculo = Veiculo::find($id);
+
+        if (!$veiculo) {
+            return response()->json(['erro' => 'Veículo não encontrado'], 404);
+        }
+
+        $dados = $request->only([
+            'veiculo',
+            'marca',
+            'ano',
+            'descricao',
+            'vendido'
+        ]);
+
+        $veiculo->update($dados);
+
+        return response()->json($veiculo);
+    }
+
 
     /**
      * Remove the specified resource from storage.
