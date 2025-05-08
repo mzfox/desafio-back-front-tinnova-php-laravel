@@ -44,10 +44,17 @@ class VeiculoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Veiculo $veiculo)
+    public function show($id)
     {
-        //
+        $veiculo = Veiculo::find($id);
+    
+        if (!$veiculo) {
+            return response()->json(['erro' => 'Veículo não encontrado'], 404);
+        }
+    
+        return response()->json($veiculo);
     }
+    
 
     /**
      * Show the form for editing the specified resource.
