@@ -10,9 +10,23 @@ class VeiculoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return response()->json(Veiculo::all());
+        $query = Veiculo::query();
+    
+        if ($request->filled('marca')) {
+            $query->where('marca', $request->marca);
+        }
+    
+        if ($request->filled('ano')) {
+            $query->where('ano', $request->ano);
+        }
+    
+        if ($request->filled('cor')) {
+            $query->where('descricao', 'LIKE', '%' . $request->cor . '%');
+        }
+    
+        return response()->json($query->get());
     }
 
     /**
