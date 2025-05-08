@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VotacaoController;
 use App\Http\Controllers\OrdenacaoController;
 use App\Http\Controllers\FatorialController;
-
+use App\Http\Controllers\MultiplosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +20,7 @@ use App\Http\Controllers\FatorialController;
 Route::get('/exercicio1', [VotacaoController::class, 'index']);
 Route::get('/exercicio2', [OrdenacaoController::class, 'index']);
 Route::get('/exercicio3/{numero}', [FatorialController::class, 'calcular']);
+Route::get('/exercicio4/{limite}', [MultiplosController::class, 'somar']);
 
 
 Route::get('/', function () {
