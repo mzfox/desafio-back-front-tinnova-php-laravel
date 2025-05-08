@@ -115,8 +115,16 @@ class VeiculoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Veiculo $veiculo)
-    {
-        //
-    }
+    public function destroy($id)
+     {
+         $veiculo = Veiculo::find($id);
+     
+         if (!$veiculo) {
+             return response()->json(['erro' => 'Veículo não encontrado'], 404);
+         }
+     
+         $veiculo->delete();
+     
+         return response()->json(null, 204);
+     }
 }
