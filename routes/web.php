@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\VotacaoController;
+use App\Http\Controllers\OrdenacaoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +16,9 @@ use App\Http\Controllers\VotacaoController;
 */
 
 Route::get('/exercicio1', [VotacaoController::class, 'index']);
+
+Route::get('/exercicio2', [OrdenacaoController::class, 'index']);
+
 
 Route::get('/', function () {
     return view('welcome');
